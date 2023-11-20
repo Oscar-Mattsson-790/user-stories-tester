@@ -1,16 +1,14 @@
 import { render, screen } from "@testing-library/react";
-import App from "./App";
+import CoffeeList from "./CoffeeList";
 
-describe("App", () => {
-  it("renderar huvudtiteln", () => {
-    render(<App />);
-    expect(
-      screen.getByText("Välkommen till vårt kaffeutbud")
-    ).toBeInTheDocument();
-  });
+describe("CoffeeList", () => {
+  it("visar alla kaffesorter", () => {
+    const coffees = [
+      { id: 1, name: "Espresso", price: "50kr" },
+      { id: 2, name: "Latte", price: "40kr" },
+    ];
+    render(<CoffeeList coffees={coffees} />);
 
-  it("visar kaffesorter från CoffeeList", () => {
-    render(<App />);
     expect(screen.getByText("Espresso")).toBeInTheDocument();
     expect(screen.getByText("50kr")).toBeInTheDocument();
     expect(screen.getByText("Latte")).toBeInTheDocument();

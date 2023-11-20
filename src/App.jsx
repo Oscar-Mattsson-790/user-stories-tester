@@ -1,14 +1,16 @@
 import "./App.css";
-import Navigation from "./components/Navigation/Navigation";
-import ProdcutDisplay from "./components/ProductItem/ProductItem";
-import Cart from "./components/Cart/Cart";
+import CoffeeList from "./components/CoffeeList/CoffeeList";
 
 function App() {
+  const coffees = [
+    { id: 1, name: "Espresso", price: "50kr" },
+    { id: 2, name: "Latte", price: "40kr" },
+  ];
+
   return (
     <div>
-      <Navigation />
-      <ProdcutDisplay />
-      <Cart />
+      <h1>Välkommen till vårt kaffeutbud</h1>
+      <CoffeeList coffees={coffees} />
     </div>
   );
 }
